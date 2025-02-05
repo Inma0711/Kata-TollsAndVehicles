@@ -24,6 +24,6 @@ class DatabaseSeeder extends Seeder
         ]);
         */
 
-        Toll_Station::factory(20)->create();
+        Toll_Station::factory()->count(10)->create();
     }
 }

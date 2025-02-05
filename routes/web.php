@@ -11,8 +11,8 @@ Route::get('/', function () {
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicles.home');
-Route::get('/vehicles/{id}', [VehicleController::class, 'show'])->name('vehicles.show');
-Route::get('/stations', [StationController::class, 'index'])->name('stations.home');
-Route::get('/stations/{id}', [StationController::class, 'show'])->name('stations.show');
 
+Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicleHome');
+Route::get('/vehicles/{id}', [VehicleController::class, 'show'])->name('vehicleShow');
+Route::get('/stations', [StationController::class, 'index'])->name('stationHome');
+Route::get('/stations/{id}', [StationController::class, 'show'])->name('stationShow');

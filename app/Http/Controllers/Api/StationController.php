@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Toll_Station;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class StationController extends Controller
 {
@@ -13,7 +14,9 @@ class StationController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $stations = Toll_Station::all();
+
+        return response()->json($stations, 200);
     }
 
     /**
@@ -29,24 +32,42 @@ class StationController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'city' => 'required|string|max:255',
-            'total_toll_collected' => 'required|array', 
+        $validator = Validator::make($request->all(), [
+            'name' => 'required | string',
+            'city' => 'required | string',
+            'total_toll_collected' => 'required | integer',
         ]);
 
-        $totalCollected = array_sum($request->total_toll_colected);
+        if($validator->fails()) {
+            return response()->json([
+                'message' => 'Introduced data is not correct',
+                'errors' => $validator->errors(),
+            ], 400);
+        }
+
+        $validated = $validator->validate();
 
         $station = Toll_Station::create([
-            'name' => $request->name,
-            'city' => $request->city,
-            'total_collected' => $totalCollected,
+            'name' => $validated['name'],
+            'city' => $validated['city'],
+            'total_toll_collected' => $validated['total_toll_collected'],
         ]);
+        $station->save();
 
-        return response()->json([
-            'message' => 'Estación creada con éxito',
-            'station' => $station
-        ], 201);
+        return response()->json($station, 201);
+        
+       
+  
+
+    /*
+    $station = Toll_Station::create([
+        'name' => $request->name,
+        'city' => $request->city,
+        'total_toll_collected' => $request->total_toll_collected,
+    ]);
+    $station->save();
+    return response()->json($station, 200);
+    */
     }
     
     /**

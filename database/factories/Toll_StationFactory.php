@@ -6,16 +6,11 @@ use App\Models\Toll_Station;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Toll_Stations>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Toll_Station>
  */
-class Toll_StationsFactory extends Factory
+class Toll_StationFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-
+   
     protected $model = Toll_Station::class;
 
     public function definition(): array

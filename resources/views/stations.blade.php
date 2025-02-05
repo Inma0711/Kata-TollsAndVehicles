@@ -10,8 +10,8 @@
         <div class="stationItem">
             <p><strong>Nombre:</strong> {{ $station->name }}</p>
             <p><strong>Ciudad:</strong> {{ $station->city }}</p>
-            <p><strong>Total recaudado:</strong> {{ $station->total_collected }} €</p>
-            <a href="{{ route('stations.show', $station->id) }}" class="detailsButton">Detalles</a>
+            <p><strong>Total recaudado:</strong> {{ $station->total_toll_collected }} €</p>
+            <a href="{{ route('stationShow', $station->id) }}" class="detailsButton">Detalles</a>
         </div>
     @endforeach
 </div>
