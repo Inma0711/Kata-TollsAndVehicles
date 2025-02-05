@@ -1,0 +1,13 @@
+footer{
+    display: flex;
+    height: 40px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--green-main);
+    color: white;
+}
+
+.github {
+    height: 30px;
+}

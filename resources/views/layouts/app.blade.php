@@ -13,13 +13,13 @@
     </head>
     <body>
         <div id="app">
-        
+            <x-header/>
 
             <main>
                 @yield('content')
             </main>
 
-           
+            <x-footer/>
         </div>
 
         <script src="https://kit.fontawesome.com/d9cbd3c891.js" crossorigin="anonymous"></script>
