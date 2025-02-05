@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Toll_Stations;
+use App\Models\Toll_Station;
 use App\Models\User;
 use Database\Factories\Toll_StationsFactory;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -24,6 +24,6 @@ class DatabaseSeeder extends Seeder
         ]);
         */
 
-        Toll_Stations::factory(20)->create();
+        Toll_Station::factory(20)->create();
     }
 }

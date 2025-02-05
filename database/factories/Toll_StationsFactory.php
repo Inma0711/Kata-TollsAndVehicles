@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Toll_Stations;
+use App\Models\Toll_Station;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,7 +16,7 @@ class Toll_StationsFactory extends Factory
      * @return array<string, mixed>
      */
 
-    protected $model = Toll_Stations::class;
+    protected $model = Toll_Station::class;
 
     public function definition(): array
     {
