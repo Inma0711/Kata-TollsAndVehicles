@@ -1,11 +1,13 @@
 @import url(header.css);
 @import url(footer.css);
 @import url(home.css);
+@import url(station.css);
 
 :root {
     --green-main: #498372;
     --green-dark: #30554b;
     --green-light: #b7d8cc;
+    --green-hover: #a3c836;
 }
 
 
@@ -15,6 +17,10 @@ html, body {
     padding: 0;
     display: flex;
     flex-direction: column;
+}
+
+body {
+    padding-top: 60px;
 }
 
 #app {
@@ -28,4 +34,5 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 60px;
 }

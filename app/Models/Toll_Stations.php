@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Toll_Station extends Model
+class Toll_Stations extends Model
 {
     use HasFactory;
+
+    protected $table = 'toll_stations';
 
     protected $fillable = [
         'name',

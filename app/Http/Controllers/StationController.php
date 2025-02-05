@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Station;
+use App\Models\Toll_Stations;
 use Illuminate\Http\Request;
 
 class StationController extends Controller
 {
     public function index()
     {
-        $stations = Station::all();
+        $stations = Toll_Stations::all();
 
         return view('stations', compact('stations'));
     }
 
     public function show(string $id)
     {
-        $station = Station::with('tolls.vehicle.type')->findOrFail($id);
+        $station = Toll_Stations::with('tolls.vehicle.type')->findOrFail($id);
 
         return view('stationShow', compact('station'));
     }
