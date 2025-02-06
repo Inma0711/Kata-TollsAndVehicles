@@ -2,6 +2,7 @@
 @import url(footer.css);
 @import url(home.css);
 @import url(station.css);
+@import url(stationShow.css);
 
 :root {
     --green-main: #498372;

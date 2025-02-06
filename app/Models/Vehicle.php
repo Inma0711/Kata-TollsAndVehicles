@@ -21,7 +21,7 @@ class Vehicle extends Model
         return $this->belongsTo(Type_Vehicle::class, 'type_vehicle_id');
     }
 
-    public function toll(): HasMany {
+    public function tolls(): HasMany {
         return $this->hasMany(Vehicle_Toll_Station::class, 'vehicle_id');
     }
 }

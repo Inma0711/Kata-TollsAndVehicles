@@ -1,0 +1,25 @@
+.containerTitle{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+.stationAtribute{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.containerMain{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.title{
+    height: 5px;
+    font-size: 25px;
+    font-weight: bold;
+}
