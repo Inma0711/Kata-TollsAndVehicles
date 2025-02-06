@@ -12,7 +12,7 @@ Route::post('/vehicles', [VehicleController::class, 'store'])->name('apiStoreVeh
 Route::put('/vehicles/{id}', [VehicleController::class, 'update'])->name('apiUpdateVehicle');
 Route::delete('/vehicles/{id}', [VehicleController::class, 'destroy'])->name('apiDestroyVehicle');
 
-Route::get('/stations' , [StationController::class, 'index'])->name('apiVehicleHome');
+Route::get('/stations' , [StationController::class, 'index'])->name('apiStationHome');
 Route::get('/stations/{id}', [StationController::class, 'show'])->name('apiStationShow'); 
 Route::post('/stations', [StationController::class, 'store'])->name('apiStoreStation');  
 Route::put('/stations/{id}', [StationController::class, 'update'])->name('apiUpdateStation');  
