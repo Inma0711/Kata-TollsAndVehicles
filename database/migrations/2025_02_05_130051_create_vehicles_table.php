@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
             $table->string('plate');
+            $table->integer('axles');
             $table->unsignedBigInteger('type_vehicle_id');
             $table->foreign('type_vehicle_id')->references('id')->on('type_vehicles')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
