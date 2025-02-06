@@ -57,12 +57,16 @@ class StationController extends Controller
         return response()->json($station, 201);
     }
     
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        //
+        $station = Toll_Station::find($id);
+    
+
+    if (!$station) {
+        return response()->json(['message' => 'station not found'], 404);
+    }
+    
+    return response()->json($station);
     }
 
     /**
@@ -86,6 +90,17 @@ class StationController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+         
+    $station = Toll_Station::find($id);
+    
+    if (!$station) {
+        return response()->json(['message' => 'station not found'], 404);
+    }
+    
+
+    $station->delete();
+    
+
+    return response()->json(['message' => 'station correctly deleted']);
     }
 }

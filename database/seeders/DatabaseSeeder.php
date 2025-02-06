@@ -26,9 +26,9 @@ class DatabaseSeeder extends Seeder
         ]);
         */
 
-        Toll_Station::factory(20)->create();
+        Toll_Station::factory(10)->create();
         Type_Vehicle::factory(3)->create();
-        Vehicle::factory(20)->create();
-        Vehicle_Toll_Station::factory(40)->create();
+        Vehicle::factory(10)->create();
+        Vehicle_Toll_Station::factory(10)->create();
     }
 }
