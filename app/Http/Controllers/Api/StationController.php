@@ -9,9 +9,7 @@ use App\Http\Controllers\Controller;
 
 class StationController extends Controller
 {
-      /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $stations = Toll_Station::all();
@@ -19,17 +17,7 @@ class StationController extends Controller
         return response()->json($stations, 200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -38,7 +26,7 @@ class StationController extends Controller
             'total_toll_collected' => 'required | integer',
         ]);
 
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return response()->json([
                 'message' => 'Introduced data is not correct',
                 'errors' => $validator->errors(),
@@ -56,51 +44,32 @@ class StationController extends Controller
 
         return response()->json($station, 201);
     }
-    
+
     public function show(string $id)
     {
         $station = Toll_Station::find($id);
-    
 
-    if (!$station) {
-        return response()->json(['message' => 'station not found'], 404);
-    }
-    
-    return response()->json($station);
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+        if (!$station) {
+            return response()->json(['message' => 'station not found'], 404);
+        }
+
+        return response()->json($station);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-         
-    $station = Toll_Station::find($id);
-    
-    if (!$station) {
-        return response()->json(['message' => 'station not found'], 404);
-    }
-    
 
-    $station->delete();
-    
+        $station = Toll_Station::find($id);
 
-    return response()->json(['message' => 'station correctly deleted']);
+        if (!$station) {
+            return response()->json(['message' => 'station not found'], 404);
+        }
+
+
+        $station->delete();
+
+
+        return response()->json(['message' => 'station correctly deleted']);
     }
 }

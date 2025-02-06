@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Api;
+
 use App\Models\Vehicle;
 use App\Models\Type_Vehicle;
 use Illuminate\Http\Request;
@@ -32,48 +33,40 @@ class VehicleController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'plate' => 'required',
-            'axles' => 'nullable | integer | between:1,3',
-            'type' => 'required | exists:type,type | string',
-        ]);
-    
-        if($validator->fails()) {
-            return response()->json([
-                'message' => 'Introduced data is not correct',
-                'errors' => $validator->errors(),
-            ], 400);
-        }
-    
-        $validated = $validator->validate();
-    
-        $vehicleType = Type_Vehicle::where('type', $validated['type'])->first();
-    
-        if($vehicleType->type == 'truck' && empty($validated['axles'])) {
+
+        $vehicleType = Type_Vehicle::where('type', $request->type)->first();
+
+        if ($vehicleType->type == 'camion' && empty($request->axles)) {
             return response()->json([
                 'message' => 'Number of axles is required for trucks',
             ], 400);
         }
-    
+
         $vehicle = Vehicle::create([
-            'place' => $validated['place'],
-            'axles' => $vehicleType->type === 'truck' ? $validated['axles'] : null,
+            'plate' => $request->plate,
+            'axles' => $request->axles,
             'type_vehicle_id' => $vehicleType->id,
-            
+
         ]);
-    
+
         $vehicle->save();
-    
+
         return response()->json($vehicle, 201);
-    
     }
-    
+
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        //
+        $vehicle = Vehicle::find($id);
+
+
+        if (!$vehicle) {
+            return response()->json(['message' => 'vehicle not found'], 404);
+        }
+
+        return response()->json($vehicle);
     }
 
     /**
@@ -97,6 +90,16 @@ class VehicleController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $vehicle = Vehicle::find($id);
+
+        if (!$vehicle) {
+            return response()->json(['message' => 'vehicle not found'], 404);
+        }
+
+
+        $vehicle->delete();
+
+
+        return response()->json(['message' => 'vehicle correctly deleted']);
     }
 }
