@@ -35,7 +35,7 @@ class VehicleController extends Controller
         $validator = Validator::make($request->all(), [
             'plate' => 'required',
             'axles' => 'nullable | integer | between:1,3',
-            'type' => 'required | exists:type_vehicles,type | string',
+            'type' => 'required | exists:type,type | string',
         ]);
     
         if($validator->fails()) {

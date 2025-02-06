@@ -4,10 +4,10 @@
 
 
 
-<div class="stationList">
+<div class="objectList">
     <h1>ESTACIONES</h1>
     @foreach ($stations as $station)
-        <div class="stationItem">
+        <div class="item">
             <p><strong>Nombre:</strong> {{ $station->name }}</p>
             <p><strong>Ciudad:</strong> {{ $station->city }}</p>
             <p><strong>Total recaudado:</strong> {{ $station->total_toll_collected }} €</p>
