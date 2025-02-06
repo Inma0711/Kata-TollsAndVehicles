@@ -2,12 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
+use App\Models\Vehicle;
 use App\Models\Toll_Station;
 use App\Models\Type_Vehicle;
-use App\Models\User;
-use Database\Factories\Toll_StationsFactory;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Factories\Toll_StationsFactory;
 
 class DatabaseSeeder extends Seeder
 {
@@ -27,5 +28,6 @@ class DatabaseSeeder extends Seeder
 
         Toll_Station::factory(20)->create();
         Type_Vehicle::factory(3)->create();
+        Vehicle::factory(20)->create();
     }
 }
