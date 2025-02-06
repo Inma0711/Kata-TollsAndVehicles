@@ -11,7 +11,7 @@
             <p><strong>Vehiculo:</strong> {{ $vehicle->type->type }}</p>
             <p><strong>Placa:</strong> {{ $vehicle->plate }}</p>
             <p><strong>Numero de ejes:</strong> {{ $vehicle->axles ? $vehicle->axles : 0 }}</p>
-            <a href="{{ route('stationShow', $vehicle->id) }}" class="detailsButton">Detalles</a>
+            <a href="{{ route('vehicleShow', $vehicle->id) }}" class="detailsButton">Detalles</a>
         </div>
     @endforeach
 </div>

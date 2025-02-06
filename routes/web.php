@@ -12,7 +12,7 @@ Route::get('/', function () {
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
-Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicleHome');
+Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicleList');
 Route::get('/vehicles/{id}', [VehicleController::class, 'show'])->name('vehicleShow');
-Route::get('/stations', [StationController::class, 'index'])->name('stationHome');
+Route::get('/stations', [StationController::class, 'index'])->name('stationList');
 Route::get('/stations/{id}', [StationController::class, 'show'])->name('stationShow');

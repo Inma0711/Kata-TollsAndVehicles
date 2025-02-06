@@ -24,10 +24,10 @@
        <div class="objectList">
             @foreach ($station->tolls as $toll)
             <div class="item">
-                <p><strong>Vehículo:</strong>{{ ucfirst($toll->vehicle->type->type) }}</p>
+                <p><strong>Vehículo: </strong>{{ ucfirst($toll->vehicle->type->type) }}</p>
 
-                <p><strong>Número de ejes:</strong> {{ $toll->vehicle->axles ? $toll->vehicle->axles : 0 }}</p>
-                <p><strong>Dinero a pagar:</strong> {{ $toll->toll_value }}€</p>
+                <p><strong>Número de ejes: </strong> {{ $toll->vehicle->axles ? $toll->vehicle->axles : 0 }}</p>
+                <p><strong>Dinero a pagar: </strong> {{ $toll->toll_value }}€</p>
 
                 <a href="{{ route('vehicleShow', $toll->vehicle->id) }}" class="detailsButton">Detalles</a>
         </div>
