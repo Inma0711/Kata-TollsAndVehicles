@@ -10,7 +10,7 @@ class Vehicle_Toll_Station extends Model
 {
     use HasFactory;
 
-    protected $table = 'stations_vehicles';
+    protected $table = 'vehicle_toll_station';
 
     protected $fillable = [
         'toll_station_id',
