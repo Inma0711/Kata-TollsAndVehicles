@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Api;
 
 use Tests\TestCase;
 use App\Models\Toll_Station;
@@ -21,20 +21,6 @@ class Toll_StationTest extends TestCase
             ->assertJsonCount(1);
     }
 
-    public function test_CheckThatAStationEntryIsDeletedProperly()
-    {
-
-        $stations = Toll_Station::factory(2)->create();
-
-        $stationId = $stations->first()->id;
-
-        $response = $this->delete(route('apiDestroyStation', $stationId));
-
-        $this->assertDatabaseCount('toll_stations', 1);
-
-        $response = $this->get(route('apiStationHome'));
-        $response->assertJsonCount(1);
-    }
 
     public function test_CheckIfCanCreateNewEntryInToll_StationWithJsonFile()
     {
@@ -54,6 +40,21 @@ class Toll_StationTest extends TestCase
         $response = $this->get(route('apiStationHome'));
         $response->assertStatus(200)
             ->assertJsonCount(1);
+    }
+
+    public function test_CheckThatAStationEntryIsDeletedProperly()
+    {
+
+        $stations = Toll_Station::factory(2)->create();
+
+        $stationId = $stations->first()->id;
+
+        $response = $this->delete(route('apiDestroyStation', $stationId));
+
+        $this->assertDatabaseCount('toll_stations', 1);
+
+        $response = $this->get(route('apiStationHome'));
+        $response->assertJsonCount(1);
     }
 
     public function test_CheckThatValidationFailsWhenCreatingStationWithMissingFields()

@@ -34,6 +34,7 @@ class VehicleController extends Controller
     public function store(Request $request)
     {
 
+        
         $vehicleType = Type_Vehicle::where('type', $request->type)->first();
 
         if ($vehicleType->type == 'camion' && empty($request->axles)) {
