@@ -14,11 +14,11 @@ class Vehicle extends Model
     protected $fillable = [
         'plate',
         'axles',
-        'type_vehicles_id'
+        'type_vehicle_id'
     ];
 
     public function type(): BelongsTo {
-        return $this->belongsTo(Type_Vehicle::class, 'type_vehicles_id');
+        return $this->belongsTo(Type_Vehicle::class, 'type_vehicle_id');
     }
 
     public function toll(): HasMany {

@@ -10,6 +10,8 @@ class Type_Vehicle extends Model
 {
     use HasFactory;
 
+    protected $table = 'type_vehicles';
+    
     protected $fillable = [
         'type',
         'value',

@@ -1,22 +1,22 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-
-use Illuminate\Support\Facades\Validator;
-use App\Models\Toll_Station;
+use App\Models\Vehicle;
+use App\Models\Type_Vehicle;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
-class StationController extends Controller
+class VehicleController extends Controller
 {
-      /**
+    /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $stations = Toll_Station::all();
+        $vehicles = Vehicle::with('type')->get();
 
-        return response()->json($stations, 200);
+        return response()->json($vehicles, 200);
     }
 
     /**
@@ -33,28 +33,39 @@ class StationController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required | string',
-            'city' => 'required | string',
-            'total_toll_collected' => 'required | integer',
+            'plate' => 'required',
+            'axles' => 'nullable | integer | between:1,3',
+            'type' => 'required | exists:types,type | string',
         ]);
-
+    
         if($validator->fails()) {
             return response()->json([
                 'message' => 'Introduced data is not correct',
                 'errors' => $validator->errors(),
             ], 400);
         }
-
+    
         $validated = $validator->validate();
-
-        $station = Toll_Station::create([
-            'name' => $validated['name'],
-            'city' => $validated['city'],
-            'total_toll_collected' => $validated['total_toll_collected'],
+    
+        $vehicleType = Type_Vehicle::where('type', $validated['type'])->first();
+    
+        if($vehicleType->type == 'truck' && empty($validated['axles'])) {
+            return response()->json([
+                'message' => 'Number of axles is required for trucks',
+            ], 400);
+        }
+    
+        $vehicle = Vehicle::create([
+            'place' => $validated['place'],
+            'axles' => $vehicleType->type === 'truck' ? $validated['axles'] : null,
+            'type_vehicle_id' => $vehicleType->id,
+            
         ]);
-        $station->save();
-
-        return response()->json($station, 201);
+    
+        $vehicle->save();
+    
+        return response()->json($vehicle, 201);
+    
     }
     
     /**

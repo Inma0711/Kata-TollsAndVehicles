@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Toll_Station;
+use App\Models\Type_Vehicle;
 use App\Models\User;
 use Database\Factories\Toll_StationsFactory;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -24,6 +25,7 @@ class DatabaseSeeder extends Seeder
         ]);
         */
 
-        Toll_Station::factory()->count(10)->create();
+        Toll_Station::factory(20)->create();
+        Type_Vehicle::factory(3)->create();
     }
 }
