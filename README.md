@@ -6,15 +6,6 @@ In this project we find a website to manage tolls where we can see two lists of 
 ## Proyect guide
 As soon as we enter we see a home page where we can choose if we want to see the list of vehicles or tolls, when we enter one of these we will see a list, if we enter an element of the list we will see the information of this one. In the case of the cars we will also see how many tolls it has passed through and in the case of the tolls we will see how many cars have passed through it.
 
-Correct answer
-![Correct answer](postmanDNI1.png)
-
-Wrong length answer
-![Wrong length answer](postmanDNI2.png)
-
-Wrong type answer
-![Wrong type answer](postmanDNI3.png)
-
 ## Installation requierements
 - XAMPP
 
@@ -65,24 +56,62 @@ npm run dev
 
 ## 📚 Database diagram
 Here we find the project diagram which is made up of a single table
-![DNI table](tableDNI.png)
+![tablaKataTollStation](https://github.com/user-attachments/assets/1a4f3321-017a-4aae-83c7-2493c8995e4c)
+
 
 ## API Endpoints
-- In this project we have this endpoint to be able to see the ID card letter:
+#### Stations
+- To view the list of toll stations
 
 ```
-http://127.0.0.1:8000/api
+http://127.0.0.1:8000/api/stations
+```
+- To be able to see a toll station
+
+```
+http://127.0.0.1:8000/api/stations/{id}
+```
+- In order to create a station
+
+```
+http://localhost:8000/api/stations
+```
+- In order to delete a station
+
+```
+http://127.0.0.1:8000/api/stations/{id}
+```
+#### Vehicles
+- To view the list of toll vehicles
+
+```
+http://127.0.0.1:8000/api/vehicles
+```
+- To be able to see a toll vehicle
+
+```
+http://127.0.0.1:8000/api/vehicles/{id}
+```
+- In order to create a vehicle
+
+```
+http://localhost:8000/api/vehicles
+```
+- In order to delete a vehicle
+
+```
+http://127.0.0.1:8000/api/vehicles/{id}
 ```
 
 ## Test
-This project has 80% test coverage.
+This project has 72,6% test coverage.
 
 -To test the tests and see the coverage in the terminal:
 
 ```
   php artisan test --coverage
 ```
-![test DNI](testDNI.png)
+![testKata](https://github.com/user-attachments/assets/f4fc7639-e503-46cb-bc2c-e1c07cabef2c)
 
 ## 🛠️Technologies and Tools
 
