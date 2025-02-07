@@ -17,9 +17,7 @@ class Toll_StationTest extends TestCase
 
         Toll_Station::factory(3)->create();
 
-
         $response = $this->get(route('stationList'));
-
 
         $response->assertStatus(200);
 
