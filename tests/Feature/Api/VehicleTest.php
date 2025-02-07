@@ -22,6 +22,16 @@ class VehicleTest extends TestCase
         $response->assertStatus(200)
             ->assertJsonCount(1);
     }
+
+
+    public function test_CheckCannotRetrieveVehicleWithInvalidId()
+    {
+        $response = $this->get(route('apiVehicleShow', 99999));
+    
+        $response->assertStatus(404)
+            ->assertJson(['message' => 'vehicle not found']);
+    }
+    
     
     public function test_CheckThatAVehicleEntryIsDeletedProperly()
     {
@@ -53,6 +63,8 @@ class VehicleTest extends TestCase
 
         $response->assertStatus(404);
     }
+
+
 
 }
 

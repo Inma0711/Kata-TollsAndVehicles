@@ -21,7 +21,16 @@ class Toll_StationTest extends TestCase
             ->assertJsonCount(1);
     }
 
-
+    public function test_CheckCanRetrieveSingleToll_StationById()
+    {
+        $station = Toll_Station::factory()->create();
+    
+        $response = $this->get(route('apiStationShow', $station->id));
+    
+        $response->assertStatus(200)
+            ->assertJsonFragment(['name' => $station->name]);
+    }
+    
     public function test_CheckIfCanCreateNewEntryInToll_StationWithJsonFile()
     {
         $data = [
