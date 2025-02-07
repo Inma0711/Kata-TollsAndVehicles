@@ -38,4 +38,21 @@ class VehicleTest extends TestCase
         $response->assertJsonCount(1);
     }
 
+    public function test_CheckThatDeletingNonExistentVehicleReturnsError()
+    {
+
+        $response = $this->delete(route('apiDestroyVehicle', 800));
+
+        $response->assertStatus(404);
+    }
+
+    
+    public function test_CheckThatRetrievingNonExistentVehicleReturnsError(){
+
+        $response = $this->get(route('apiVehicleShow', 800));
+
+        $response->assertStatus(404);
+    }
+
 }
+
