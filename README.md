@@ -3,9 +3,20 @@
 ## Description
 In this project we find a website to manage tolls where we can see two lists of different tolls and vehicles as well as being able to enter each of them.
 
+
+***
 ## Proyect guide
 As soon as we enter we see a home page where we can choose if we want to see the list of vehicles or tolls, when we enter one of these we will see a list, if we enter an element of the list we will see the information of this one. In the case of the cars we will also see how many tolls it has passed through and in the case of the tolls we will see how many cars have passed through it.
 
+
+***
+## :eye_speech_bubble: Project overview
+![homView](https://github.com/user-attachments/assets/084916fb-e23e-400d-86d7-c32c89d1652a)
+![estacionesView](https://github.com/user-attachments/assets/6612d745-8359-4a5f-b232-6e60094180d6)
+![showView](https://github.com/user-attachments/assets/f5e596c1-5307-4873-a91e-19c8a857eff0)
+
+
+***
 ## Installation requierements
 - XAMPP
 
@@ -17,6 +28,8 @@ As soon as we enter we see a home page where we can choose if we want to see the
 
 - Postman
 
+
+***
 ## 💻 Installation
 - Clone repository
 ```
@@ -54,11 +67,13 @@ php artisan serve
 npm run dev
 ```
 
+***
 ## 📚 Database diagram
 Here we find the project diagram which is made up of a single table
 ![tablaKataTollStation](https://github.com/user-attachments/assets/1a4f3321-017a-4aae-83c7-2493c8995e4c)
 
 
+***
 ## API Endpoints
 #### Stations
 - To view the list of toll stations
@@ -103,6 +118,8 @@ http://localhost:8000/api/vehicles
 http://127.0.0.1:8000/api/vehicles/{id}
 ```
 
+
+***
 ## Test
 This project has 72,6% test coverage.
 
@@ -113,6 +130,8 @@ This project has 72,6% test coverage.
 ```
 ![testKata](https://github.com/user-attachments/assets/f4fc7639-e503-46cb-bc2c-e1c07cabef2c)
 
+
+***
 ## 🛠️Technologies and Tools
 
 <a href='https://github.com/shivamkapasia0' target="_blank"><img alt='PHP' src='https://img.shields.io/badge/PHP-100000?style=for-the-badge&logo=PHP&logoColor=white&labelColor=777BB4&color=777BB4'/></a>
@@ -126,6 +145,8 @@ This project has 72,6% test coverage.
 <a href='https://github.com/shivamkapasia0' target="_blank"><img alt='Postman' src='https://img.shields.io/badge/Postman-100000?style=for-the-badge&logo=Postman&logoColor=white&labelColor=FF6C37&color=FF6C37'/></a>
 <a href='https://github.com/shivamkapasia0' target="_blank"><img alt='XAMPP' src='https://img.shields.io/badge/XAMPP-100000?style=for-the-badge&logo=XAMPP&logoColor=white&labelColor=FB7A24&color=FB7A24'/></a>
 
+
+***
 ## Author
 
 This project was fully developed by: 
