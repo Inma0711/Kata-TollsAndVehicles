@@ -24,13 +24,13 @@ class Toll_StationTest extends TestCase
     public function test_CheckCanRetrieveSingleToll_StationById()
     {
         $station = Toll_Station::factory()->create();
-    
+
         $response = $this->get(route('apiStationShow', $station->id));
-    
+
         $response->assertStatus(200)
             ->assertJsonFragment(['name' => $station->name]);
     }
-    
+
     public function test_CheckIfCanCreateNewEntryInToll_StationWithJsonFile()
     {
         $data = [
@@ -39,13 +39,13 @@ class Toll_StationTest extends TestCase
             'total_toll_collected' => 10000
         ];
 
-    
+
         $response = $this->post(route('apiStoreStation'), $data);
 
         $response->assertStatus(201)
             ->assertJsonFragment(['name' => 'Estacion central']);
 
-     
+
         $response = $this->get(route('apiStationHome'));
         $response->assertStatus(200)
             ->assertJsonCount(1);
@@ -75,28 +75,21 @@ class Toll_StationTest extends TestCase
         ];
 
         $response = $this->post(route('apiStoreStation'), $data);
-
         $response->assertStatus(400);
-
         $response->assertJsonValidationErrors(['total_toll_collected']);
     }
 
 
     public function test_CheckThatDeletingNonExistentStationReturnsError()
     {
-
         $response = $this->delete(route('apiDestroyStation', 800));
-
         $response->assertStatus(404);
     }
 
-    
-    public function test_CheckThatRetrievingNonExistentStationReturnsError(){
-
+    public function test_CheckThatRetrievingNonExistentStationReturnsError()
+    {
         $response = $this->get(route('apiStationShow', 800));
-
         $response->assertStatus(404);
     }
 
 }
-

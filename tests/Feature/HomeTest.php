@@ -12,13 +12,8 @@ class HomeTest extends TestCase
 
     public function test_CheckHomePageLoadsSuccessfully()
     {
-    
-        $response = $this->get(route('home'));
-
-        
+        $response = $this->get(route('home'));   
         $response->assertStatus(200);
-
-       
         $response->assertViewIs('home');
     }
 }
